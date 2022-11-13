@@ -6,16 +6,50 @@ namespace Projekt_2_vistula
     {
         static int[] bubbleArray = new int[20];
         static int[] insertionArray = new int[20];
+        static int[] insertionSubArray = new int[20];
         static void Main(string[] args)
         {
-            RandomizeArrayValues(bubbleArray);
-            DisplayArray(bubbleArray);
+            //RandomizeArrayValues(bubbleArray);
+            //DisplayArray(bubbleArray);
 
-            BubbleSorting(bubbleArray);
-            DisplayArray(bubbleArray);
+            //BubbleSorting(bubbleArray);
+            //DisplayArray(bubbleArray);
 
 
             RandomizeArrayValues(insertionArray);
+            DisplayArray(insertionArray);
+
+            Console.WriteLine("Sorting values via insert sorting algorithm");
+            int n = 0;
+            int noSwapCounter = 0;
+            bool done = true;
+            while (done)
+            {
+                if (n + 1 > insertionArray.Length)
+                {
+                    n = 0;
+                }
+
+                if (insertionArray[n] <= insertionArray[n++])
+                {
+                    insertionSubArray[n]=insertionArray[n];
+
+                    noSwapCounter++;
+                    if (insertionArray.Length < noSwapCounter)
+                    {
+                        done = false;
+                    }
+                    n++;
+                }
+                else if (insertionArray[n] > insertionArray[n++])
+                {
+                    int temp = insertionArray[n];
+                    insertionArray[n] = insertionArray[n + 1];
+                    insertionArray[n + 1] = temp;
+                    n++;
+                }
+            }
+
             DisplayArray(insertionArray);
 
         }
