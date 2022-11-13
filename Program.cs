@@ -1,8 +1,11 @@
-﻿namespace Projekt_2_vistula
+﻿using System;
+
+namespace Projekt_2_vistula
 {
     internal class Program
     {
         static int[] bubbleArray = new int[20];
+        static int[] insertionArray = new int[20];
         static void Main(string[] args)
         {
             RandomizeArrayValues(bubbleArray);
@@ -10,6 +13,11 @@
 
             BubbleSorting(bubbleArray);
             DisplayArray(bubbleArray);
+
+
+            RandomizeArrayValues(insertionArray);
+            DisplayArray(insertionArray);
+
         }
 
         /// <summary>
@@ -19,8 +27,8 @@
         private static void BubbleSorting(int[] array)
         {
             Console.WriteLine("Sorting values via bubble sorting algorithm");
-            int switchCounter = 0;      // tracks how many times numbers changed place
-            int noSwitchCounter = -1;   // track since when the last switch of values were made
+            int swapCounter = 0;      // tracks how many times numbers changed place
+            int noSwapCounter = -1;   // track since when the last swap of values were made
                                         // when all values are sorted correctly this value is equal the array lenght
             int n = 0;                  // points to the index of the array
             bool done = true;           // ends the while loop when algorithm finishes sorting
@@ -33,21 +41,22 @@
                 }
 
                 //Compares values from bubbleArray
-                if (array[n] < array[n + 1])
+                if (array[n] <= array[n + 1])
                 {
-                    noSwitchCounter++;
-                    if (array.Length < noSwitchCounter)
+                    // values are placed correclty, there is not value swap
+                    noSwapCounter++;
+                    if (array.Length < noSwapCounter)
                     {
                         done = false;
                     }
                 }
                 else if (array[n] > array[n + 1])
                 {
-                    noSwitchCounter = 0;
+                    noSwapCounter = 0;
                     int temp = array[n];
                     array[n] = array[n + 1];
                     array[n + 1] = temp;
-                    switchCounter++;
+                    swapCounter++;
                 }
 
                 n++;
