@@ -2,61 +2,66 @@
 {
     internal class Program
     {
-        static int[] tablica = new int[20];
+        static int[] bubbleArray = new int[20];
         static void Main(string[] args)
         {
-            //Projekt
-            //Generacja tablicy o wieklkosci 20 z losowymi numerami
             Random random = new Random();
-            for (int i = 0; i < tablica.Length; i++)
+            //Insetring random values to all slots of the bubbleArray
+            for (int i = 0; i < bubbleArray.Length; i++) 
             {
-                tablica[i] = random.Next(0, 101);
+                bubbleArray[i] = random.Next(0, 101);
             }
-            //Wyswietlanie tablicy
-            DisplayArray(tablica);
+            DisplayArray(bubbleArray);
 
-            Console.WriteLine("Algorytm dziala");
-            //Algorytm babelkowy
-            int krok = 0;
-            int oldCounter = -1;
+            Console.WriteLine("Sorting values via bubble sorting algorithm");
+            int switchCounter = 0; // tracks how many times numbers changed place
+            int noSwitchCounter = -1; //track since when the last switch of values were made
+                                      // when all values are sorted correctly this value is equal the array lenght
             int n = 0;
             int nPlus = 1;
             bool done = true;
             while (done)
             {
-                //resetuje wartosci jesli wychodza poza array
-                if (nPlus > tablica.Length - 1)
+                //Resets the value of the variable array index if it goes out of bounds of the bubbleArray
+                if (nPlus > bubbleArray.Length - 1)
                 {
                     n = 0;
                     nPlus = 1;
                 }
-                //sprawdzam czy 1 jest wieksza od drugiej i zamieniam
-                if (tablica[n] < tablica[nPlus])
+                
+                //Compares values from bubbleArray
+                if (bubbleArray[n] < bubbleArray[nPlus])
                 {
-                    oldCounter++;
-                    if (tablica.Length < oldCounter)
+                    noSwitchCounter++;
+                    if (bubbleArray.Length < noSwitchCounter)
                     {
                         done = false;
                     }
                 }
-                else if (tablica[n] > tablica[nPlus])
+                else if (bubbleArray[n] > bubbleArray[nPlus])
                 {
-                    oldCounter = 0;
-                    int temp = tablica[n];
-                    tablica[n] = tablica[nPlus];
-                    tablica[nPlus] = temp;
-                    krok++;
+                    noSwitchCounter = 0;
+                    int temp = bubbleArray[n];
+                    bubbleArray[n] = bubbleArray[nPlus];
+                    bubbleArray[nPlus] = temp;
+                    switchCounter++;
                 }
+
                 n++;
                 nPlus++;
             }
-            DisplayArray(tablica);
+            DisplayArray(bubbleArray);
         }
-        private static void DisplayArray(int[] tablica)
+
+        /// <summary>
+        /// Displays all values from 1d array with int values
+        /// </summary>
+        /// <param name="array"></param>
+        private static void DisplayArray(int[] array)
         {
-            for (int i = 0; i < tablica.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(tablica[i]);
+                Console.WriteLine(array[i]);
             }
         }
     }
