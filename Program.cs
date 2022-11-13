@@ -18,19 +18,17 @@
             int noSwitchCounter = -1; //track since when the last switch of values were made
                                       // when all values are sorted correctly this value is equal the array lenght
             int n = 0;
-            int nPlus = 1;
             bool done = true;
             while (done)
             {
                 //Resets the value of the variable array index if it goes out of bounds of the bubbleArray
-                if (nPlus > bubbleArray.Length - 1)
+                if (n + 1 > bubbleArray.Length - 1)
                 {
                     n = 0;
-                    nPlus = 1;
                 }
                 
                 //Compares values from bubbleArray
-                if (bubbleArray[n] < bubbleArray[nPlus])
+                if (bubbleArray[n] < bubbleArray[n+1])
                 {
                     noSwitchCounter++;
                     if (bubbleArray.Length < noSwitchCounter)
@@ -38,17 +36,16 @@
                         done = false;
                     }
                 }
-                else if (bubbleArray[n] > bubbleArray[nPlus])
+                else if (bubbleArray[n] > bubbleArray[n + 1])
                 {
                     noSwitchCounter = 0;
                     int temp = bubbleArray[n];
-                    bubbleArray[n] = bubbleArray[nPlus];
-                    bubbleArray[nPlus] = temp;
+                    bubbleArray[n] = bubbleArray[n + 1];
+                    bubbleArray[n + 1] = temp;
                     switchCounter++;
                 }
 
                 n++;
-                nPlus++;
             }
             DisplayArray(bubbleArray);
         }
