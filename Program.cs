@@ -16,7 +16,6 @@
 
             RandomizeArrayValues(insertionArray);
             DisplayArray(insertionArray);
-
             Console.WriteLine("Sorting values via insert sorting algorithm");
             int n = 0;
             int x = 1;
@@ -24,14 +23,14 @@
             //bool done = true;
             for (int i = 0; i <= insertionArray.Length - 1; i++)
             {
-                if (insertionArray[n] <= insertionArray[x])
+                if (insertionArray[n] <= insertionArray[i])
                 {
                     insertionSubArray[i] = insertionArray[n];
                 }
                 else
                 {
                     int a = n;
-                    int b = x;
+                    int b = i;
                     for (int j = n; j >= 0; j--)
                     {
                         int temp = insertionArray[a];
@@ -45,6 +44,10 @@
                         a--;
                         b--;
                     }
+                }
+                if(n<i)
+                {
+                    n++;
                 }
             }
 
