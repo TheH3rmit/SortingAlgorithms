@@ -19,26 +19,31 @@
 
             Console.WriteLine("Sorting values via insert sorting algorithm");
             int n = 0;
+            int x = 1;
             //int noSwapCounter = 0;
             //bool done = true;
-            for (int i = 0; i < insertionArray.Length-1; i++)
+            for (int i = 0; i <= insertionArray.Length - 1; i++)
             {
-                if (insertionArray[n] <= insertionArray[n++])
+                if (insertionArray[n] <= insertionArray[x])
                 {
                     insertionSubArray[i] = insertionArray[n];
                 }
                 else
                 {
+                    int a = n;
+                    int b = x;
                     for (int j = n; j >= 0; j--)
                     {
-                        int temp = insertionArray[n];
-                        insertionArray[n] = insertionArray[n++];
-                        insertionArray[n++] = temp;
-                        if (insertionArray[n] <= insertionArray[n++])
+                        int temp = insertionArray[a];
+                        insertionArray[a] = insertionArray[b];
+                        insertionArray[b] = temp;
+                        if (insertionArray[a] <= insertionArray[b])
                         {
-                            insertionSubArray[i] = insertionArray[n];
+                            insertionSubArray[i] = insertionArray[a];
                             break;
                         }
+                        a--;
+                        b--;
                     }
                 }
             }
