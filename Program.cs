@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Projekt_2_vistula
+﻿namespace Projekt_2_vistula
 {
     internal class Program
     {
@@ -21,36 +19,31 @@ namespace Projekt_2_vistula
 
             Console.WriteLine("Sorting values via insert sorting algorithm");
             int n = 0;
-            int noSwapCounter = 0;
-            bool done = true;
-            while (done)
+            //int noSwapCounter = 0;
+            //bool done = true;
+            for (int i = 0; i < insertionArray.Length-1; i++)
             {
-                if (n + 1 > insertionArray.Length)
-                {
-                    n = 0;
-                }
-
                 if (insertionArray[n] <= insertionArray[n++])
                 {
-                    insertionSubArray[n]=insertionArray[n];
-
-                    noSwapCounter++;
-                    if (insertionArray.Length < noSwapCounter)
-                    {
-                        done = false;
-                    }
-                    n++;
+                    insertionSubArray[i] = insertionArray[n];
                 }
-                else if (insertionArray[n] > insertionArray[n++])
+                else
                 {
-                    int temp = insertionArray[n];
-                    insertionArray[n] = insertionArray[n + 1];
-                    insertionArray[n + 1] = temp;
-                    n++;
+                    for (int j = n; j >= 0; j--)
+                    {
+                        int temp = insertionArray[n];
+                        insertionArray[n] = insertionArray[n++];
+                        insertionArray[n++] = temp;
+                        if (insertionArray[n] <= insertionArray[n++])
+                        {
+                            insertionSubArray[i] = insertionArray[n];
+                            break;
+                        }
+                    }
                 }
             }
 
-            DisplayArray(insertionArray);
+            DisplayArray(insertionSubArray);
 
         }
 
@@ -63,7 +56,7 @@ namespace Projekt_2_vistula
             Console.WriteLine("Sorting values via bubble sorting algorithm");
             int swapCounter = 0;      // tracks how many times numbers changed place
             int noSwapCounter = -1;   // track since when the last swap of values were made
-                                        // when all values are sorted correctly this value is equal the array lenght
+                                      // when all values are sorted correctly this value is equal the array lenght
             int n = 0;                  // points to the index of the array
             bool done = true;           // ends the while loop when algorithm finishes sorting
             while (done)
