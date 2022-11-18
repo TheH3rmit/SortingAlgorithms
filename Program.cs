@@ -4,7 +4,7 @@
     {
         static int[] bubbleArray = new int[20];
         static int[] insertionArray = new int[20];
-        static int[] insertionSubArray = new int[20];
+        static int[] selectionArray = new int[20];
         static void Main(string[] args)
         {
             //RandomizeArrayValues(bubbleArray);
@@ -13,45 +13,22 @@
             //BubbleSorting(bubbleArray);
             //DisplayArray(bubbleArray);
 
-
             RandomizeArrayValues(insertionArray);
             DisplayArray(insertionArray);
             Console.WriteLine("Sorting values via insert sorting algorithm");
-            int n = 0;
-            int x = 1;
-            //int noSwapCounter = 0;
-            //bool done = true;
-            for (int i = 0; i <= insertionArray.Length - 1; i++)
-            {
-                if (insertionArray[n] <= insertionArray[i])
-                {
-                    insertionSubArray[i] = insertionArray[n];
-                }
-                else
-                {
-                    int a = n;
-                    int b = i;
-                    for (int j = n; j >= 0; j--)
-                    {
-                        int temp = insertionArray[a];
-                        insertionArray[a] = insertionArray[b];
-                        insertionArray[b] = temp;
-                        if (insertionArray[a] <= insertionArray[b])
-                        {
-                            insertionSubArray[i] = insertionArray[a];
-                            break;
-                        }
-                        a--;
-                        b--;
-                    }
-                }
-                if(n<i)
-                {
-                    n++;
-                }
-            }
 
-            DisplayArray(insertionSubArray);
+            for (int i = 1; i <= insertionArray.Length - 1; i++)
+            {
+                int j = i;
+                while (j>0 && insertionArray[j-1] > insertionArray[j])
+                {
+                    int temp = insertionArray[j];
+                    insertionArray[j] = insertionArray[j-1];
+                    insertionArray[j-1] = temp;
+                    j--;
+                }    
+            }
+            DisplayArray(insertionArray);
 
         }
 
