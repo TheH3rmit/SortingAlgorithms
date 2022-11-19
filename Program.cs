@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Projekt_2_vistula
+﻿namespace Projekt_2_vistula
 {
     internal class Program
     {
@@ -19,24 +17,20 @@ namespace Projekt_2_vistula
             RandomizeArrayValues(selectionArray);
             DisplayArray(selectionArray);
 
-            Console.WriteLine("Sorting values via selection sorting algorithm"); 
-            for(int i = 0; i < selectionArray.Length-1; i++)
+            Console.WriteLine("Sorting values via selection sorting algorithm");
+            for (int i = 0; i < selectionArray.Length - 1; i++)
             {
-                int indexOfSmalestValue = 0;
-                int minInArray = selectionArray[i];
-                for (int j = i+1; j < selectionArray.Length; j++)
+                int minValueIndex = i;
+                for (int j = i + 1; j < selectionArray.Length; j++)
                 {
-                    if (selectionArray[j] < minInArray)
+                    if (selectionArray[j] < selectionArray[minValueIndex])
                     {
-                        minInArray = selectionArray[j];
-                        indexOfSmalestValue = j;
+                        minValueIndex = j;
                     }
                 }
-                if(indexOfSmalestValue != 0)
-                {
-                    selectionArray[indexOfSmalestValue] = selectionArray[i];
-                }    
-                selectionArray[i] = minInArray;
+                int temp = selectionArray[minValueIndex];
+                selectionArray[minValueIndex] = selectionArray[i];
+                selectionArray[i] = temp;
             }
             DisplayArray(selectionArray);
 
@@ -52,7 +46,7 @@ namespace Projekt_2_vistula
             Console.WriteLine("Sorting values via bubble sorting algorithm");
             int swapCounter = 0;      // tracks how many times numbers changed place
             int noSwapCounter = -1;   // track since when the last swap of values were made
-                                        // when all values are sorted correctly this value is equal the array lenght
+                                      // when all values are sorted correctly this value is equal the array lenght
             int n = 0;                  // points to the index of the array
             bool done = true;           // ends the while loop when algorithm finishes sorting
             while (done)
