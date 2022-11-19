@@ -15,21 +15,26 @@
 
             RandomizeArrayValues(insertionArray);
             DisplayArray(insertionArray);
-            Console.WriteLine("Sorting values via insert sorting algorithm");
 
-            for (int i = 1; i <= insertionArray.Length - 1; i++)
-            {
-                int j = i;
-                while (j>0 && insertionArray[j-1] > insertionArray[j])
-                {
-                    int temp = insertionArray[j];
-                    insertionArray[j] = insertionArray[j-1];
-                    insertionArray[j-1] = temp;
-                    j--;
-                }    
-            }
+            InsertSorting(insertionArray);
             DisplayArray(insertionArray);
 
+        }
+
+        private static void InsertSorting(int[] array)
+        {
+            Console.WriteLine("Sorting values via insert sorting algorithm");
+            for (int i = 1; i <= array.Length - 1; i++)
+            {
+                int j = i;
+                while (j > 0 && array[j - 1] > array[j])
+                {
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                    j--;
+                }
+            }
         }
 
         /// <summary>
