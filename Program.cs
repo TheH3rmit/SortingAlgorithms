@@ -4,13 +4,14 @@
     {
         static int[] bubbleArray = new int[20];
         static int[] selectionArray = new int[20];
+        static int[] insertionArray = new int[20];
         static void Main(string[] args)
         {
-            //RandomizeArrayValues(bubbleArray);
-            //DisplayArray(bubbleArray);
+            RandomizeArrayValues(bubbleArray);
+            DisplayArray(bubbleArray);
 
-            //BubbleSorting(bubbleArray);
-            //DisplayArray(bubbleArray);
+            BubbleSorting(bubbleArray);
+            DisplayArray(bubbleArray);
 
             RandomizeArrayValues(insertionArray);
             DisplayArray(insertionArray);
@@ -22,10 +23,6 @@
 
             SelectionSorting(selectionArray);
             DisplayArray(selectionArray);
-
-
-        }
-
         }
 
         private static void InsertSorting(int[] array)
@@ -42,6 +39,7 @@
                     j--;
                 }
             }
+        }
         private static void SelectionSorting(int[] array)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
