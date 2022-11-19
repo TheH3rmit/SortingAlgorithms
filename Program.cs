@@ -3,7 +3,6 @@
     internal class Program
     {
         static int[] bubbleArray = new int[20];
-        static int[] insertionArray = new int[20];
         static int[] selectionArray = new int[20];
         static void Main(string[] args)
         {
@@ -17,13 +16,13 @@
             RandomizeArrayValues(selectionArray);
             DisplayArray(selectionArray);
 
-            InsertionSorting(insertionArray);
+            SelectionSorting(selectionArray);
             DisplayArray(selectionArray);
 
 
         }
 
-        private static void InsertionSorting(int[] array)
+        private static void SelectionSorting(int[] array)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
             for (int i = 0; i < array.Length - 1; i++)
