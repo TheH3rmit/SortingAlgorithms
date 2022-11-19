@@ -17,24 +17,29 @@
             RandomizeArrayValues(selectionArray);
             DisplayArray(selectionArray);
 
+            InsertionSorting(insertionArray);
+            DisplayArray(selectionArray);
+
+
+        }
+
+        private static void InsertionSorting(int[] array)
+        {
             Console.WriteLine("Sorting values via selection sorting algorithm");
-            for (int i = 0; i < selectionArray.Length - 1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
                 int minValueIndex = i;
-                for (int j = i + 1; j < selectionArray.Length; j++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (selectionArray[j] < selectionArray[minValueIndex])
+                    if (array[j] < array[minValueIndex])
                     {
                         minValueIndex = j;
                     }
                 }
-                int temp = selectionArray[minValueIndex];
-                selectionArray[minValueIndex] = selectionArray[i];
-                selectionArray[i] = temp;
+                int temp = array[minValueIndex];
+                array[minValueIndex] = array[i];
+                array[i] = temp;
             }
-            DisplayArray(selectionArray);
-
-
         }
 
         /// <summary>
