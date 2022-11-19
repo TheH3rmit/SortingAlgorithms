@@ -4,7 +4,6 @@
     {
         static int[] bubbleArray = new int[20];
         static int[] insertionArray = new int[20];
-        static int[] selectionArray = new int[20];
         static void Main(string[] args)
         {
             //RandomizeArrayValues(bubbleArray);
