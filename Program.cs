@@ -13,11 +13,16 @@
             BubbleSorting(bubbleArray);
             DisplayArray(bubbleArray);
 
+            Console.WriteLine();
+
             RandomizeArrayValues(insertionArray);
             DisplayArray(insertionArray);
 
             InsertSorting(insertionArray);
             DisplayArray(insertionArray);
+
+            Console.WriteLine();
+
             RandomizeArrayValues(selectionArray);
             DisplayArray(selectionArray);
 
@@ -123,8 +128,9 @@
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(array[i]);
+                Console.Write(" " + array[i] + " ");
             }
+            Console.WriteLine();
         }
     }
 }
