@@ -37,6 +37,7 @@
         private static void InsertSorting(int[] array)
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
+            int noSwapCounter = 0;
             for (int i = 1; i <= array.Length - 1; i++)
             {
                 int j = i;
@@ -45,6 +46,7 @@
                     (int, int) temp = (array[j], array[j - 1]);
                     array[j] = temp.Item2;
                     array[j - 1] = temp.Item1;
+                    noSwapCounter++;
                     j--;
                 }
             }
@@ -57,6 +59,7 @@
         private static void SelectionSorting(int[] array)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
+            int noSwapCounter = 0;
             for (int i = 0; i < array.Length - 1; i++)
             {
                 int minValueIndex = i;
@@ -71,6 +74,7 @@
                 (int, int) temp = (array[minValueIndex], array[i]);
                 array[minValueIndex] = temp.Item2;
                 array[i] = temp.Item1;
+                noSwapCounter++;
             }
         }
 
