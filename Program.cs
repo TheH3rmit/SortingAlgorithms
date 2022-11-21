@@ -2,32 +2,32 @@
 {
     internal class Program
     {
-        static int[] jpBubbleArray = new int[20];
-        static int[] jpSelectionArray = new int[20];
-        static int[] jpInsertionArray = new int[20];
+        static int[] BubbleArray = new int[20];
+        static int[] SelectionArray = new int[20];
+        static int[] InsertionArray = new int[20];
         static void Main(string[] args)
         {
-            RandomizeArrayValues(jpBubbleArray);
-            DisplayArray(jpBubbleArray);
+            RandomizeArrayValues(BubbleArray);
+            DisplayArray(BubbleArray);
 
-            BubbleSorting(jpBubbleArray);
-            DisplayArray(jpBubbleArray);
-
-            Console.WriteLine();
-
-            RandomizeArrayValues(jpInsertionArray);
-            DisplayArray(jpInsertionArray);
-
-            InsertSorting(jpInsertionArray);
-            DisplayArray(jpInsertionArray);
+            BubbleSorting(BubbleArray);
+            DisplayArray(BubbleArray);
 
             Console.WriteLine();
 
-            RandomizeArrayValues(jpSelectionArray);
-            DisplayArray(jpSelectionArray);
+            RandomizeArrayValues(InsertionArray);
+            DisplayArray(InsertionArray);
 
-            SelectionSorting(jpSelectionArray);
-            DisplayArray(jpSelectionArray);
+            InsertSorting(InsertionArray);
+            DisplayArray(InsertionArray);
+
+            Console.WriteLine();
+
+            RandomizeArrayValues(SelectionArray);
+            DisplayArray(SelectionArray);
+
+            SelectionSorting(SelectionArray);
+            DisplayArray(SelectionArray);
         }
 
         /// <summary>
