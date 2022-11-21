@@ -2,34 +2,38 @@
 {
     internal class Program
     {
-        static int[] bubbleArray = new int[20];
-        static int[] selectionArray = new int[20];
-        static int[] insertionArray = new int[20];
+        static int[] jpBubbleArray = new int[20];
+        static int[] jpSelectionArray = new int[20];
+        static int[] jpInsertionArray = new int[20];
         static void Main(string[] args)
         {
-            RandomizeArrayValues(bubbleArray);
-            DisplayArray(bubbleArray);
+            RandomizeArrayValues(jpBubbleArray);
+            DisplayArray(jpBubbleArray);
 
-            BubbleSorting(bubbleArray);
-            DisplayArray(bubbleArray);
-
-            Console.WriteLine();
-
-            RandomizeArrayValues(insertionArray);
-            DisplayArray(insertionArray);
-
-            InsertSorting(insertionArray);
-            DisplayArray(insertionArray);
+            BubbleSorting(jpBubbleArray);
+            DisplayArray(jpBubbleArray);
 
             Console.WriteLine();
 
-            RandomizeArrayValues(selectionArray);
-            DisplayArray(selectionArray);
+            RandomizeArrayValues(jpInsertionArray);
+            DisplayArray(jpInsertionArray);
 
-            SelectionSorting(selectionArray);
-            DisplayArray(selectionArray);
+            InsertSorting(jpInsertionArray);
+            DisplayArray(jpInsertionArray);
+
+            Console.WriteLine();
+
+            RandomizeArrayValues(jpSelectionArray);
+            DisplayArray(jpSelectionArray);
+
+            SelectionSorting(jpSelectionArray);
+            DisplayArray(jpSelectionArray);
         }
 
+        /// <summary>
+        /// Sorts the the values of 1d array via insert sorting algorithm 
+        /// </summary>
+        /// <param name="array"></param>
         private static void InsertSorting(int[] array)
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
@@ -38,13 +42,18 @@
                 int j = i;
                 while (j > 0 && array[j - 1] > array[j])
                 {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
+                    (int, int) temp = (array[j], array[j - 1]);
+                    array[j] = temp.Item2;
+                    array[j - 1] = temp.Item1;
                     j--;
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the the values of 1d array via selection sorting algorithm 
+        /// </summary>
+        /// <param name="array"></param>
         private static void SelectionSorting(int[] array)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
@@ -58,9 +67,10 @@
                         minValueIndex = j;
                     }
                 }
-                int temp = array[minValueIndex];
-                array[minValueIndex] = array[i];
-                array[i] = temp;
+
+                (int, int) temp = (array[minValueIndex], array[i]);
+                array[minValueIndex] = temp.Item2;
+                array[i] = temp.Item1;
             }
         }
 
@@ -97,9 +107,9 @@
                 else if (array[n] > array[n + 1])
                 {
                     noSwapCounter = 0;
-                    int temp = array[n];
-                    array[n] = array[n + 1];
-                    array[n + 1] = temp;
+                    (int, int) temp = (array[n], array[n + 1]);
+                    array[n] = temp.Item2;
+                    array[n + 1] = temp.Item1;
                     swapCounter++;
                 }
 
