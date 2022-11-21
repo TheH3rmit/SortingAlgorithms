@@ -8,25 +8,34 @@
         static void Main(string[] args)
         {
             RandomizeArrayValues(BubbleArray);
+            Console.WriteLine("Initial array");
             DisplayArray(BubbleArray);
 
-            BubbleSorting(BubbleArray);
+            Console.WriteLine();
+
+            Console.WriteLine("It took {0} swaps to sort this array", BubbleSorting(BubbleArray));
             DisplayArray(BubbleArray);
 
             Console.WriteLine();
 
             RandomizeArrayValues(InsertionArray);
+            Console.WriteLine("Initial array");
             DisplayArray(InsertionArray);
 
-            InsertSorting(InsertionArray);
+            Console.WriteLine();
+
+            Console.WriteLine("It took {0} swaps to sort this array", InsertSorting(InsertionArray));
             DisplayArray(InsertionArray);
 
             Console.WriteLine();
 
             RandomizeArrayValues(SelectionArray);
+            Console.WriteLine("Initial array");
             DisplayArray(SelectionArray);
 
-            SelectionSorting(SelectionArray);
+            Console.WriteLine();
+
+            Console.WriteLine("It took {0} swaps to sort this array", SelectionSorting(SelectionArray));
             DisplayArray(SelectionArray);
         }
 
@@ -34,7 +43,7 @@
         /// Sorts the the values of 1d array via insert sorting algorithm 
         /// </summary>
         /// <param name="array"></param>
-        private static void InsertSorting(int[] array)
+        private static int InsertSorting(int[] array)
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
             int noSwapCounter = 0;
@@ -50,13 +59,14 @@
                     j--;
                 }
             }
+            return noSwapCounter;
         }
 
         /// <summary>
         /// Sorts the the values of 1d array via selection sorting algorithm 
         /// </summary>
         /// <param name="array"></param>
-        private static void SelectionSorting(int[] array)
+        private static int SelectionSorting(int[] array)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
             int noSwapCounter = 0;
@@ -76,13 +86,14 @@
                 array[i] = temp.Item1;
                 noSwapCounter++;
             }
+            return noSwapCounter;
         }
 
         /// <summary>
         /// Sorts the the values of 1d array via bubble sorting algorithm 
         /// </summary>
         /// <param name="array"></param>
-        private static void BubbleSorting(int[] array)
+        private static int BubbleSorting(int[] array)
         {
             Console.WriteLine("Sorting values via bubble sorting algorithm");
             int swapCounter = 0;      // tracks how many times numbers changed place
@@ -111,8 +122,8 @@
                         }
                     }
                 }
-
             }
+            return noSwapCounter;
         }
 
         /// <summary>
