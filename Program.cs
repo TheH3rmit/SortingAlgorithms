@@ -147,7 +147,8 @@
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write(" " + array[i] + " ");
+                string output = array[i].ToString();
+                Console.Write(output.PadRight(4));
             }
             Console.WriteLine();
         }
