@@ -82,38 +82,32 @@
         {
             Console.WriteLine("Sorting values via bubble sorting algorithm");
             int swapCounter = 0;      // tracks how many times numbers changed place
-            int noSwapCounter = -1;   // track since when the last swap of values were made
+            int noSwapCounter = 0;   // track since when the last swap of values were made
                                       // when all values are sorted correctly this value is equal the array lenght
-            int n = 0;                  // points to the index of the array
-            bool done = true;           // ends the while loop when algorithm finishes sorting
+            bool done = true;         // ends the while loop when algorithm finishes sorting
             while (done)
             {
-                //Resets the value of the variable array index if it goes out of bounds of the bubbleArray
-                if (n + 1 > array.Length - 1)
-                {
-                    n = 0;
-                }
 
-                //Compares values from bubbleArray
-                if (array[n] <= array[n + 1])
+                for(int i = 0; i < array.Length-1; i++)
                 {
-                    // values are placed correclty, there is not value swap
-                    noSwapCounter++;
-                    if (array.Length < noSwapCounter)
+                    if(array[i] < array[i+1])
                     {
-                        done = false;
+                        noSwapCounter = 0;
+                        (int, int) temp = (array[i], array[i + 1]);
+                        array[i] = temp.Item2;
+                        array[i + 1] = temp.Item1;
+                        swapCounter++;
+                    }
+                    else
+                    {
+                        noSwapCounter++;
+                        if (array.Length < noSwapCounter)
+                        {
+                            done = false;
+                        }
                     }
                 }
-                else if (array[n] > array[n + 1])
-                {
-                    noSwapCounter = 0;
-                    (int, int) temp = (array[n], array[n + 1]);
-                    array[n] = temp.Item2;
-                    array[n + 1] = temp.Item1;
-                    swapCounter++;
-                }
 
-                n++;
             }
         }
 
