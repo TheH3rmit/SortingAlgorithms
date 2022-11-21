@@ -90,7 +90,7 @@
 
                 for(int i = 0; i < array.Length-1; i++)
                 {
-                    if(array[i] < array[i+1])
+                    if(array[i] > array[i+1])
                     {
                         noSwapCounter = 0;
                         (int, int) temp = (array[i], array[i + 1]);
