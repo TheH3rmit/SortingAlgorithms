@@ -2,9 +2,9 @@
 {
     internal class Program
     {
-        static int[] BubbleArray = new int[20];
-        static int[] SelectionArray = new int[20];
-        static int[] InsertionArray = new int[20];
+        static int[] jpBubbleArray = new int[20];
+        static int[] jpSelectionArray = new int[20];
+        static int[] jpInsertionArray = new int[20];
         static void Main(string[] args)
         {
             BubbleAlgorithm();
@@ -23,14 +23,14 @@
         /// </summary>
         private static void SelectionAlgorithm()
         {
-            RandomizeArrayValues(SelectionArray);
+            RandomizeArrayValues(jpSelectionArray);
             Console.WriteLine("Initial array");
-            DisplayArray(SelectionArray);
+            DisplayArray(jpSelectionArray);
 
             Console.WriteLine();
 
-            Console.WriteLine("It took {0} swaps to sort this array", SelectionSorting(SelectionArray));
-            DisplayArray(SelectionArray);
+            Console.WriteLine("It took {0} swaps to sort this array", SelectionSorting(jpSelectionArray));
+            DisplayArray(jpSelectionArray);
         }
 
         /// <summary>
@@ -38,14 +38,14 @@
         /// </summary>
         private static void InsertionAlgorithm()
         {
-            RandomizeArrayValues(InsertionArray);
+            RandomizeArrayValues(jpInsertionArray);
             Console.WriteLine("Initial array");
-            DisplayArray(InsertionArray);
+            DisplayArray(jpInsertionArray);
 
             Console.WriteLine();
 
-            Console.WriteLine("It took {0} swaps to sort this array", InsertSorting(InsertionArray));
-            DisplayArray(InsertionArray);
+            Console.WriteLine("It took {0} swaps to sort this array", InsertSorting(jpInsertionArray));
+            DisplayArray(jpInsertionArray);
         }
 
         /// <summary>
@@ -53,126 +53,126 @@
         /// </summary>
         private static void BubbleAlgorithm()
         {
-            RandomizeArrayValues(BubbleArray);
+            RandomizeArrayValues(jpBubbleArray);
             Console.WriteLine("Initial array");
-            DisplayArray(BubbleArray);
+            DisplayArray(jpBubbleArray);
 
             Console.WriteLine();
 
-            Console.WriteLine("It took {0} swaps to sort this array", BubbleSorting(BubbleArray));
-            DisplayArray(BubbleArray);
+            Console.WriteLine("It took {0} swaps to sort this array", BubbleSorting(jpBubbleArray));
+            DisplayArray(jpBubbleArray);
         }
 
         /// <summary>
         /// Sorts the the values of 1d array via insert sorting algorithm 
         /// </summary>
-        /// <param name="array"></param>
-        private static int InsertSorting(int[] array)
+        /// <param name="jpArray"></param>
+        private static int InsertSorting(int[] jpArray)
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
-            int noSwapCounter = 0;
-            for (int i = 1; i < array.Length; i++)
+            int jpNoSwapCounter = 0;
+            for (int jpI = 1; jpI < jpArray.Length; jpI++)
             {
-                int j = i;
-                while (j > 0 && array[j - 1] > array[j]) // Currently chosen value from the array is compared to the all values that stand before it 
+                int jpJ = jpI;
+                while (jpJ > 0 && jpArray[jpJ - 1] > jpArray[jpJ]) // Currently chosen value from the array is compared to the all values that stand before it 
                 {
-                    (int, int) temp = (array[j], array[j - 1]); // use of tuple to swap values
-                    array[j] = temp.Item2;
-                    array[j - 1] = temp.Item1;
-                    noSwapCounter++;
-                    j--;
+                    (int, int) jpTemp = (jpArray[jpJ], jpArray[jpJ - 1]); // use of tuple to swap values
+                    jpArray[jpJ] = jpTemp.Item2;
+                    jpArray[jpJ - 1] = jpTemp.Item1;
+                    jpNoSwapCounter++;
+                    jpJ--;
                 }
             }
-            return noSwapCounter;
+            return jpNoSwapCounter;
         }
 
         /// <summary>
         /// Sorts the the values of 1d array via selection sorting algorithm 
         /// </summary>
-        /// <param name="array"></param>
-        private static int SelectionSorting(int[] array)
+        /// <param name="jpArray"></param>
+        private static int SelectionSorting(int[] jpArray)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
-            int noSwapCounter = 0;
-            for (int i = 0; i < array.Length - 1; i++) 
+            int jpNoSwapCounter = 0;
+            for (int jpI = 0; jpI < jpArray.Length - 1; jpI++) 
             {
-                int minValueIndex = i;
-                for (int j = i + 1; j < array.Length; j++) // goes through all arrays elements to find the lowest number for the currently slected index of the array
+                int jpMinValueIndex = jpI;
+                for (int jpJ = jpI + 1; jpJ < jpArray.Length; jpJ++) // goes through all arrays elements to find the lowest number for the currently slected index of the array
                 {
-                    if (array[j] < array[minValueIndex])
+                    if (jpArray[jpJ] < jpArray[jpMinValueIndex])
                     {
-                        minValueIndex = j;
+                        jpMinValueIndex = jpJ;
                     }
                 }
 
-                (int, int) temp = (array[minValueIndex], array[i]); // use of tuple to swap values
-                array[minValueIndex] = temp.Item2;
-                array[i] = temp.Item1;
-                noSwapCounter++;
+                (int, int) temp = (jpArray[jpMinValueIndex], jpArray[jpI]); // use of tuple to swap values
+                jpArray[jpMinValueIndex] = temp.Item2;
+                jpArray[jpI] = temp.Item1;
+                jpNoSwapCounter++;
             }
-            return noSwapCounter;
+            return jpNoSwapCounter;
         }
 
         /// <summary>
         /// Sorts the the values of 1d array via bubble sorting algorithm 
         /// </summary>
-        /// <param name="array"></param>
-        private static int BubbleSorting(int[] array)
+        /// <param name="jpArray"></param>
+        private static int BubbleSorting(int[] jpArray)
         {
             Console.WriteLine("Sorting values via bubble sorting algorithm");
-            int swapCounter = 0;      // tracks how many times numbers changed place
-            int noSwapCounter = 0;   // track since when the last swap of values were made
+            int jpSwapCounter = 0;      // tracks how many times numbers changed place
+            int jpNoSwapCounter = 0;   // track since when the last swap of values were made
                                       // when all values are sorted correctly this value is equal the array lenght
-            bool done = true;         // ends the while loop when algorithm finishes sorting
-            while (done)
+            bool jpDone = true;         // ends the while loop when algorithm finishes sorting
+            while (jpDone)
             {
 
-                for(int i = 0; i < array.Length-1; i++)
+                for(int jpI = 0; jpI < jpArray.Length-1; jpI++)
                 {
-                    if(array[i] > array[i+1])
+                    if(jpArray[jpI] > jpArray[jpI+1])
                     {
-                        noSwapCounter = 0;
-                        (int, int) temp = (array[i], array[i + 1]); // use of tuple to swap values
-                        array[i] = temp.Item2;
-                        array[i + 1] = temp.Item1;
-                        swapCounter++;
+                        jpNoSwapCounter = 0;
+                        (int, int) jpTemp = (jpArray[jpI], jpArray[jpI + 1]); // use of tuple to swap values
+                        jpArray[jpI] = jpTemp.Item2;
+                        jpArray[jpI + 1] = jpTemp.Item1;
+                        jpSwapCounter++;
                     }
                     else
                     {
-                        noSwapCounter++;
-                        if (array.Length < noSwapCounter) // checks if all values were sorted
+                        jpNoSwapCounter++;
+                        if (jpArray.Length < jpNoSwapCounter) // checks if all values were sorted
                         {
-                            done = false; // ends program 
+                            jpDone = false; // ends program 
                         }
                     }
                 }
             }
-            return noSwapCounter;
+            return jpNoSwapCounter;
         }
 
         /// <summary>
         /// Inserts random values to all slots of the array
         /// </summary>
-        /// <param name="array"></param>
-        private static void RandomizeArrayValues(int[] array)
+        /// <param name="jpArray"></param>
+        private static void RandomizeArrayValues(int[] jpArray)
         {
-            Random random = new Random();
-            for (int i = 0; i < array.Length; i++)
+            Random jpRandom = new Random();
+            for (int jpI = 0; jpI < jpArray.Length; jpI++)
             {
-                array[i] = random.Next(0, 101);
+                jpArray[jpI] = jpRandom.Next(0, 101);
             }
         }
 
         /// <summary>
         /// Displays all values from 1d array with int values
         /// </summary>
-        /// <param name="array"></param>
-        private static void DisplayArray(int[] array)
+        /// <param name="jpArray"></param>
+        private static void DisplayArray(int[] jpArray)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (int jpI = 0; jpI < jpArray.Length; jpI++)
             {
-                string output = array[i].ToString();
-                Console.Write(output.PadRight(4));
+                string jpOutput = jpArray[jpI].ToString();
+                Console.Write(jpOutput.PadRight(4));
             }
             Console.WriteLine();
         }
