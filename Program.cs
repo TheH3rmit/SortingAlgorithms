@@ -18,6 +18,9 @@
             SelectionAlgorithm();
         }
 
+        /// <summary>
+        /// Starts the selection sorting algorithm
+        /// </summary>
         private static void SelectionAlgorithm()
         {
             RandomizeArrayValues(SelectionArray);
@@ -30,6 +33,9 @@
             DisplayArray(SelectionArray);
         }
 
+        /// <summary>
+        /// Starts the insertion sorting algorithm
+        /// </summary>
         private static void InsertionAlgorithm()
         {
             RandomizeArrayValues(InsertionArray);
@@ -42,6 +48,9 @@
             DisplayArray(InsertionArray);
         }
 
+        /// <summary>
+        /// Starts the bubble sorting algorithm
+        /// </summary>
         private static void BubbleAlgorithm()
         {
             RandomizeArrayValues(BubbleArray);
@@ -62,12 +71,12 @@
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
             int noSwapCounter = 0;
-            for (int i = 1; i <= array.Length - 1; i++)
+            for (int i = 1; i < array.Length; i++)
             {
                 int j = i;
-                while (j > 0 && array[j - 1] > array[j])
+                while (j > 0 && array[j - 1] > array[j]) // Currently chosen value from the array is compared to the all values that stand before it 
                 {
-                    (int, int) temp = (array[j], array[j - 1]);
+                    (int, int) temp = (array[j], array[j - 1]); // use of tuple to swap values
                     array[j] = temp.Item2;
                     array[j - 1] = temp.Item1;
                     noSwapCounter++;
@@ -85,10 +94,10 @@
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
             int noSwapCounter = 0;
-            for (int i = 0; i < array.Length - 1; i++)
+            for (int i = 0; i < array.Length - 1; i++) 
             {
                 int minValueIndex = i;
-                for (int j = i + 1; j < array.Length; j++)
+                for (int j = i + 1; j < array.Length; j++) // goes through all arrays elements to find the lowest number for the currently slected index of the array
                 {
                     if (array[j] < array[minValueIndex])
                     {
@@ -96,7 +105,7 @@
                     }
                 }
 
-                (int, int) temp = (array[minValueIndex], array[i]);
+                (int, int) temp = (array[minValueIndex], array[i]); // use of tuple to swap values
                 array[minValueIndex] = temp.Item2;
                 array[i] = temp.Item1;
                 noSwapCounter++;
@@ -123,7 +132,7 @@
                     if(array[i] > array[i+1])
                     {
                         noSwapCounter = 0;
-                        (int, int) temp = (array[i], array[i + 1]);
+                        (int, int) temp = (array[i], array[i + 1]); // use of tuple to swap values
                         array[i] = temp.Item2;
                         array[i + 1] = temp.Item1;
                         swapCounter++;
@@ -131,9 +140,9 @@
                     else
                     {
                         noSwapCounter++;
-                        if (array.Length < noSwapCounter)
+                        if (array.Length < noSwapCounter) // checks if all values were sorted
                         {
-                            done = false;
+                            done = false; // ends program 
                         }
                     }
                 }
