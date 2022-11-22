@@ -7,28 +7,19 @@
         static int[] InsertionArray = new int[20];
         static void Main(string[] args)
         {
-            RandomizeArrayValues(BubbleArray);
-            Console.WriteLine("Initial array");
-            DisplayArray(BubbleArray);
+            BubbleAlgorithm();
 
             Console.WriteLine();
 
-            Console.WriteLine("It took {0} swaps to sort this array", BubbleSorting(BubbleArray));
-            DisplayArray(BubbleArray);
+            InsertionAlgorithm();
 
             Console.WriteLine();
 
-            RandomizeArrayValues(InsertionArray);
-            Console.WriteLine("Initial array");
-            DisplayArray(InsertionArray);
+            SelectionAlgorithm();
+        }
 
-            Console.WriteLine();
-
-            Console.WriteLine("It took {0} swaps to sort this array", InsertSorting(InsertionArray));
-            DisplayArray(InsertionArray);
-
-            Console.WriteLine();
-
+        private static void SelectionAlgorithm()
+        {
             RandomizeArrayValues(SelectionArray);
             Console.WriteLine("Initial array");
             DisplayArray(SelectionArray);
@@ -37,6 +28,30 @@
 
             Console.WriteLine("It took {0} swaps to sort this array", SelectionSorting(SelectionArray));
             DisplayArray(SelectionArray);
+        }
+
+        private static void InsertionAlgorithm()
+        {
+            RandomizeArrayValues(InsertionArray);
+            Console.WriteLine("Initial array");
+            DisplayArray(InsertionArray);
+
+            Console.WriteLine();
+
+            Console.WriteLine("It took {0} swaps to sort this array", InsertSorting(InsertionArray));
+            DisplayArray(InsertionArray);
+        }
+
+        private static void BubbleAlgorithm()
+        {
+            RandomizeArrayValues(BubbleArray);
+            Console.WriteLine("Initial array");
+            DisplayArray(BubbleArray);
+
+            Console.WriteLine();
+
+            Console.WriteLine("It took {0} swaps to sort this array", BubbleSorting(BubbleArray));
+            DisplayArray(BubbleArray);
         }
 
         /// <summary>
