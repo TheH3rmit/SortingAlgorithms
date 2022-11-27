@@ -79,7 +79,7 @@
                     (int, int) jpTemp = (jpArray[jpJ], jpArray[jpJ - 1]); // use of tuple to swap values
                     jpArray[jpJ] = jpTemp.Item2;
                     jpArray[jpJ - 1] = jpTemp.Item1;
-                    jpSwapCounter++;
+                    jpSwapCounter++;    // tracks how many times numbers changed place
                     jpJ--;
                 }
             }
@@ -108,7 +108,7 @@
                 (int, int) temp = (jpArray[jpMinValueIndex], jpArray[jpI]); // use of tuple to swap values
                 jpArray[jpMinValueIndex] = temp.Item2;
                 jpArray[jpI] = temp.Item1;
-                jpSwapCounter++;
+                jpSwapCounter++;    // tracks how many times numbers changed place
             }
             return jpSwapCounter;
         }
@@ -135,7 +135,7 @@
                         (int, int) jpTemp = (jpArray[jpI], jpArray[jpI + 1]); // use of tuple to swap values
                         jpArray[jpI] = jpTemp.Item2;
                         jpArray[jpI + 1] = jpTemp.Item1;
-                        jpSwapCounter++;
+                        jpSwapCounter++;    // tracks how many times numbers changed place
                     }
                     else
                     {
