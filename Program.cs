@@ -70,7 +70,7 @@
         private static int InsertSorting(int[] jpArray)
         {
             Console.WriteLine("Sorting values via insert sorting algorithm");
-            int jpNoSwapCounter = 0;
+            int jpSwapCounter = 0;
             for (int jpI = 1; jpI < jpArray.Length; jpI++)
             {
                 int jpJ = jpI;
@@ -79,11 +79,11 @@
                     (int, int) jpTemp = (jpArray[jpJ], jpArray[jpJ - 1]); // use of tuple to swap values
                     jpArray[jpJ] = jpTemp.Item2;
                     jpArray[jpJ - 1] = jpTemp.Item1;
-                    jpNoSwapCounter++;
+                    jpSwapCounter++;
                     jpJ--;
                 }
             }
-            return jpNoSwapCounter;
+            return jpSwapCounter;
         }
 
         /// <summary>
@@ -93,7 +93,7 @@
         private static int SelectionSorting(int[] jpArray)
         {
             Console.WriteLine("Sorting values via selection sorting algorithm");
-            int jpNoSwapCounter = 0;
+            int jpSwapCounter = 0;
             for (int jpI = 0; jpI < jpArray.Length - 1; jpI++) 
             {
                 int jpMinValueIndex = jpI;
@@ -108,9 +108,9 @@
                 (int, int) temp = (jpArray[jpMinValueIndex], jpArray[jpI]); // use of tuple to swap values
                 jpArray[jpMinValueIndex] = temp.Item2;
                 jpArray[jpI] = temp.Item1;
-                jpNoSwapCounter++;
+                jpSwapCounter++;
             }
-            return jpNoSwapCounter;
+            return jpSwapCounter;
         }
 
         /// <summary>
@@ -147,7 +147,7 @@
                     }
                 }
             }
-            return jpNoSwapCounter;
+            return jpSwapCounter;
         }
 
         /// <summary>
